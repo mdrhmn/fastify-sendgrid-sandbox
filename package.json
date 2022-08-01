@@ -1,0 +1,10 @@
+{
+    "dependencies": {
+        "fastify": "^4.3.0",
+        "fastify-sendgrid": "^1.0.4"
+    },
+    "scripts": {
+        "start": "node src/sendEmail.js",
+        "serve": "node src/sendEmail.js"
+    }
+}
