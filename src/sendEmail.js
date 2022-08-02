@@ -11,6 +11,7 @@ fastify.get('/sendmail/:email', (req, reply, next) => {
     console.log("SENDING EMAIL")
 
     const msg = {
+        // Send bulk emails, 'to' param = array e.g. [emailA, emailB]
         to: recipient,
         from: 'rahiman.abdulmanab@dell.com', // Use the email address or domain you verified above
         subject: 'Sending with Twilio SendGrid is Fun',
@@ -31,6 +32,8 @@ fastify.get('/sendmail/:email', (req, reply, next) => {
     (async () => {
         try {
             await sendgrid.send(msg);
+            // Send bulk emails
+            // await sendgrid.sendMultiple(msg);
         } catch (error) {
             console.error(error);
 
@@ -39,7 +42,7 @@ fastify.get('/sendmail/:email', (req, reply, next) => {
             }
         }
     })();
-
+    
     console.log("EMAIL SENT")
 })
 
